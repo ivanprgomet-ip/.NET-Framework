@@ -36,7 +36,7 @@ namespace BookLibrary
             string newAuthor = Console.ReadLine();
 
             Console.WriteLine("Enter book price: ");
-            string newPrice = Console.ReadLine();
+            int newPrice = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Enter book ISBN: ");
             string newISBN= Console.ReadLine();
@@ -46,7 +46,6 @@ namespace BookLibrary
             bookHash.Add(newISBN, newBook);
 
             Console.WriteLine("New book successfully added to book list and book hash!");
-            Console.ReadKey();
         }
         public void ListList()
         {
@@ -57,11 +56,7 @@ namespace BookLibrary
         }
         public static void ListHash()
         {
-            ICollection e = bookHash.Values;
-            foreach (Book b in bookHash)
-            {
-                b.Write();
-            }
+           //todo: fix this
         }
         public static Book SearchList(string ISBN)
         {
@@ -98,7 +93,7 @@ namespace BookLibrary
         }
         public void Main()
         {
-            while (int.Parse(choice) != 2)
+            while (true)
             {
                 Menu();
                 choice = Console.ReadLine();
@@ -150,6 +145,8 @@ namespace BookLibrary
                             Console.WriteLine("Sadly, the book was not found...");
                         break;
                 }
+                Console.ReadKey();
+                Console.Clear();
             }
         }
 
