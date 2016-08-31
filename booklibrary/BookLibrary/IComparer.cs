@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace BookLibrary
 {
-    class Program
+    interface IComparer
     {
-        static void Main(string[] args)
-        {
-        }
+
     }
 }

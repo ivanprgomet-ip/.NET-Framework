@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace BookLibrary
 {
-    class Program
+    interface BookComparator:IComparer
     {
-        static void Main(string[] args)
+        public int Compare(object o1, object o2)
         {
+            Book b1 = o1 as Book;
+            //not finnished
         }
     }
 }
