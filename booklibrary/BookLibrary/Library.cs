@@ -15,16 +15,16 @@ namespace BookLibrary
 
         public Library()
         {
-            //SOME DEFAULT BOOKS
-            Book b1 = new Book("0143105426", "Pride and Prejudice", "Austen,Jane", 300);
-            Book b2 = new Book("0465069347", "The Republic Of Plato", "Plato", 350);
-            Book b3 = new Book("0226026752", "Aristotle's Nicomachean Ethics", "Aristotle", 300);
-            Book b4 = new Book("0872202100", "Augustine: Political Writings", "Augustine", 300);
-            Book b5 = new Book("0872206637", "On Law, Morality and Politics", "Aquinas, Thomas ", 300);
-            Book b6 = new Book("0023513209", "Hegel: Reason in History", "G.W.F. Hegel", 300);
-            Book b7 = new Book("0872202186", "Marx: Selected Writings", "Marx, Karl", 300);
-            Book b8 = new Book("0446695890", "Admissions", "Lieberman, Nancy", 300);
-            Book b9 = new Book("9780141018", "On the Shortness of Life", "Lucius Annaeus Seneca", 300);
+            //DEFAULT BOOKS
+            Book b1 = new Book(" 0143105426", "Pride and Prejudice", "Austen,Jane", 300);
+            Book b2 = new Book(" 0465069347", "The Republic Of Plato", "Plato", 350);
+            Book b3 = new Book(" 0226026752", "Aristotle's Nicomachean Ethics", "Aristotle", 300);
+            Book b4 = new Book(" 0872202100", "Augustine: Political Writings", "Augustine", 300);
+            Book b5 = new Book(" 0872206637", "On Law, Morality and Politics", "Aquinas, Thomas ", 300);
+            Book b6 = new Book(" 0023513209", "Hegel: Reason in History", "G.W.F. Hegel", 300);
+            Book b7 = new Book(" 0872202186", "Marx: Selected Writings", "Marx, Karl", 300);
+            Book b8 = new Book(" 0446695890", "Admissions", "Lieberman, Nancy", 300);
+            Book b9 = new Book(" 9780141018", "On the Shortness of Life", "Lucius Annaeus Seneca", 300);
             Book b10 = new Book("978067499", "Epistulae Morales: v. 1 Letters I-LXV", "Lucius Annaeus Seneca", 300);
 
             bookList.Add(b1);
@@ -37,85 +37,18 @@ namespace BookLibrary
             bookList.Add(b8);
             bookList.Add(b9);
             bookList.Add(b10);
-        }
 
-        public static void Menu()
-        {
-            Console.WriteLine("1. New Book");
-            Console.WriteLine("2.Quit");
-            Console.WriteLine("3. List all books");
-            Console.WriteLine("4. Search book (arraylist)");
-            Console.WriteLine("5. Sort books by ISBN");
-            Console.WriteLine("6. Sort books by author");
-            Console.WriteLine("7. List books (hashtable)");
-            Console.WriteLine("8. Search Book (hashtable)");
+            bookHash.Add("0143105426",b1);
+            bookHash.Add("0465069347",b2);
+            bookHash.Add("0226026752",b3);
+            bookHash.Add("0872202100",b4);
+            bookHash.Add("0872206637",b5);
+            bookHash.Add("0023513209",b6);
+            bookHash.Add("0872202186",b7);
+            bookHash.Add("0446695890",b8);
+            bookHash.Add("9780141018",b9);
+            bookHash.Add("978067499",b10);
         }
-        public void NewBook()
-        {
-            //enter all information neccessary for a new book
-            Console.WriteLine("Enter book title: ");
-            string newTitle = Console.ReadLine();
-
-            Console.WriteLine("Enter book author: ");
-            string newAuthor = Console.ReadLine();
-
-            Console.WriteLine("Enter book price: ");
-            int newPrice = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter book ISBN: ");
-            string newISBN= Console.ReadLine();
-
-            Book newBook = new Book(newISBN, newTitle, newAuthor, newPrice);
-            bookList.Add(newBook);
-            bookHash.Add(newISBN, newBook);
-
-            Console.WriteLine("New book successfully added to book list and book hash!");
-        }
-        public void ListList()
-        {
-            foreach(Book b in bookList)
-            {
-                b.Write();
-            }
-        }
-        public static void ListHash()
-        {
-           //todo: fix this
-        }
-        public static Book SearchList(string ISBN)
-        {
-            foreach(Book b in bookList)
-            {
-                if(b.ISBN.Equals(ISBN))
-                {
-                    return b;
-                }
-            }
-            return null;
-        }
-        public static Book SearchHash(string ISBN)
-        {
-            foreach (Book b in bookHash)
-            {
-                if (b.ISBN.Equals(ISBN))
-                {
-                    return b;
-                }
-            }
-            return null;
-        }
-        public static void SortListISBN()
-        {
-            bookList.Sort();
-        }
-        public static void SortListName()
-        {
-            //todo: fix this method!
-            //var comparer = new BookComparator();
-            //bookList.Sort(comparer);
-            //Console.WriteLine("Books sorted by author name");
-        }
-
         public void Main()
         {
             bool active = true;
@@ -124,7 +57,7 @@ namespace BookLibrary
                 Menu();
                 choice = Console.ReadLine();
 
-                switch(int.Parse(choice))
+                switch (int.Parse(choice))
                 {
                     case 1:
                         NewBook();
@@ -178,6 +111,89 @@ namespace BookLibrary
                 Console.Clear();
             }
         }
+        public static void Menu()
+        {
+            Console.WriteLine("1. New Book");
+            Console.WriteLine("2. Quit");
+            Console.WriteLine("3. List all books");
+            Console.WriteLine("4. Search book (arraylist)");
+            Console.WriteLine("5. Sort books by ISBN");
+            Console.WriteLine("6. Sort books by author");
+            Console.WriteLine("7. List books (hashtable)");
+            Console.WriteLine("8. Search Book (hashtable)");
+        }
+
+        public void NewBook()
+        {
+            Console.WriteLine("Enter book title: ");
+            string newTitle = Console.ReadLine();
+
+            Console.WriteLine("Enter book author: ");
+            string newAuthor = Console.ReadLine();
+
+            Console.WriteLine("Enter book price: ");
+            int newPrice = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter book ISBN: ");
+            string newISBN= Console.ReadLine();
+
+            Book newBook = new Book(newISBN, newTitle, newAuthor, newPrice);
+            bookList.Add(newBook);
+            bookHash.Add(newISBN, newBook);
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("New book successfully added to book list and book hash!");
+            Console.ResetColor();
+        }
+        public void ListList()
+        {
+            foreach(Book b in bookList)
+            {
+                b.Write();
+            }
+        }
+        public static void ListHash()
+        {
+
+            //TODO: what purpose does ICollection serve here?
+        }
+        public static Book SearchList(string ISBN)
+        {
+            foreach(Book b in bookList)
+            {
+                if(b.ISBN.Equals(ISBN))
+                {
+                    return b;
+                }
+            }
+            return null;
+        }
+        public static Book SearchHash(string ISBN)
+        {
+            foreach (Book b in bookHash)
+            {
+                if (b.ISBN.Equals(ISBN))
+                {
+                    return b;
+                }
+            }
+            return null;
+        }
+        public static void SortListISBN()
+        {
+            bookList.Sort();
+        }
+        public static void SortListName()
+        {
+            //TODO: what is the deal with the BookComparer class here?
+            //var comparer = new BookComparator();
+            //bookList.Sort(comparer);
+            //Console.WriteLine("Books sorted by author name");
+        }
 
     }
+
+    //TODO: make a bookcomparer class that inherits from IComparer and has a compare method 
+    //TODO: make book class inherit from IComparable, which means it will be forced to have a compareto method
+    //TODO: add gethashcode and equals methods to the book class
 }
