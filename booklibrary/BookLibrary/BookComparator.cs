@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace BookLibrary
 {
-    interface BookComparator:IComparer
+    class BookComparator:IComparer
     {
-        public int Compare(object o1, object o2)
+        public int Compare(object x, object y)
         {
-            Book b1 = o1 as Book;
-            //not finnished
+            var bookOne = (Book)x;
+            var bookTwo = (Book)y;
+
+            var first = $"{bookOne.author} {bookOne.title}";
+            var second = $"{bookTwo.author} {bookTwo.title}";
+
+            return String.Compare(first, second);
         }
     }
 }

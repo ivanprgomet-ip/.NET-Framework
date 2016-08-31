@@ -50,27 +50,50 @@ namespace BookLibrary
         }
         public void ListList()
         {
-
+            foreach(Book b in bookList)
+            {
+                b.Write();
+            }
         }
         public void ListHash()
         {
-
+            foreach (Book b in bookHash)
+            {
+                b.Write();
+            }
         }
-        public Book SearchList(string ISBN)
+        public static Book SearchList(string ISBN)
         {
-            return new Book();
+            foreach(Book b in bookList)
+            {
+                if(b.ISBN.Equals(ISBN))
+                {
+                    return b;
+                }
+            }
+            return null;
         }
-        public Book SearchHash(string ISBN)
+        public static Book SearchHash(string ISBN)
         {
-            return new Book();
+            foreach (Book b in bookHash)
+            {
+                if (b.ISBN.Equals(ISBN))
+                {
+                    return b;
+                }
+            }
+            return null;
         }
-        public void SortListISBN()
+        public static void SortListISBN()
         {
-
+            bookList.Sort();
         }
-        public void SortListName()
+        public static void SortListName()
         {
-
+            //todo: fix this method!
+            var comparer = new BookComparator();
+            bookList.Sort(comparer);
+            Console.WriteLine("Books sorted by author name");
         }
         public void Main()
         {

@@ -8,10 +8,10 @@ namespace BookLibrary
 {
     class Book:IComparable//Forces the class to use the CompareTo()
     {
-        string ISBN;
-        string title;
-        string author;
-        string price;
+        public string ISBN;
+        public string title;
+        public string author;
+        public string price;
 
         public Book(string ISBN, string title, string author, string price)
         {
