@@ -28,9 +28,27 @@ namespace BookLibrary
         }
         public void NewBook()
         {
+            //enter all information neccessary for a new book
+            Console.WriteLine("Enter book title: ");
+            string newTitle = Console.ReadLine();
 
+            Console.WriteLine("Enter book author: ");
+            string newAuthor = Console.ReadLine();
+
+            Console.WriteLine("Enter book price: ");
+            string newPrice = Console.ReadLine();
+
+            Console.WriteLine("Enter book ISBN: ");
+            string newISBN= Console.ReadLine();
+
+            Book newBook = new Book(newISBN, newTitle, newAuthor, newPrice);
+            bookList.Add(newBook);
+            bookHash.Add(newISBN, newBook);
+
+            Console.WriteLine("New book successfully added to book list and book hash!");
+            Console.ReadKey();
         }
-        public void Listlist()
+        public void ListList()
         {
 
         }
@@ -64,28 +82,48 @@ namespace BookLibrary
                 switch(int.Parse(choice))
                 {
                     case 1:
-                        //new book
+                        NewBook();
                         break;
                     case 2:
-                        //quit
+                        //quits the application
                         break;
                     case 3:
-                        //list all books
+                        ListList();
                         break;
                     case 4:
-                        //search book arraylist
+                        Console.WriteLine("Enter ISBN: ");
+                        string ISBN = Console.ReadLine();
+
+                        Book searched = SearchList(ISBN);
+
+                        if (searched != null)
+                        {
+                            searched.Write();
+                        }
+                        else
+                            Console.WriteLine("Sadly, the book was not found...");
                         break;
                     case 5:
-                        //sort books by isbn
+                        SortListISBN();
                         break;
                     case 6:
-                        //sort books by author
+                        SortListName();
                         break;
                     case 7:
-                        //list books hashtable
+                        ListHash();
                         break;
                     case 8:
-                        //search book hashtable
+                        Console.WriteLine("Enter ISBN: ");
+                        string ISBN2 = Console.ReadLine();
+
+                        Book searched2 = SearchHash(ISBN2);
+
+                        if (searched2 != null)
+                        {
+                            searched2.Write();
+                        }
+                        else
+                            Console.WriteLine("Sadly, the book was not found...");
                         break;
                 }
             }
