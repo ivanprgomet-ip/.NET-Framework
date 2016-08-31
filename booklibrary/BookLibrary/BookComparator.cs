@@ -16,7 +16,7 @@ namespace BookLibrary
             var first = $"{bookOne.author} {bookOne.title}";
             var second = $"{bookTwo.author} {bookTwo.title}";
 
-            return String.Compare(first, second);
+            return string.Compare(first, second);
         }
     }
 }

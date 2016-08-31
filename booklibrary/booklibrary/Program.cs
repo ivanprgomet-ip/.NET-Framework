@@ -10,6 +10,8 @@ namespace BookLibrary
     {
         static void Main(string[] args)
         {
+            Library lib = new Library();
+            lib.Main();
         }
     }
 }

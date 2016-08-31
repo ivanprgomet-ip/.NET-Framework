@@ -55,8 +55,9 @@ namespace BookLibrary
                 b.Write();
             }
         }
-        public void ListHash()
+        public static void ListHash()
         {
+            ICollection e = bookHash.Values;
             foreach (Book b in bookHash)
             {
                 b.Write();
@@ -91,9 +92,9 @@ namespace BookLibrary
         public static void SortListName()
         {
             //todo: fix this method!
-            var comparer = new BookComparator();
-            bookList.Sort(comparer);
-            Console.WriteLine("Books sorted by author name");
+            //var comparer = new BookComparator();
+            //bookList.Sort(comparer);
+            //Console.WriteLine("Books sorted by author name");
         }
         public void Main()
         {
