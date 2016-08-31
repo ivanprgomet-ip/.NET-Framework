@@ -23,7 +23,8 @@ namespace BookLibrary
 
         public void Write()
         {
-            Console.WriteLine($"author: {author} \n title: {title} \n price: {price} \n ISBN {ISBN}");
+            Console.WriteLine($" {author} - {title} \n price: {price}:- \n ISBN {ISBN}");
+            Console.WriteLine("____________________________________");
         }
         public int PriceForQuantity(int quantity)
         {

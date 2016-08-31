@@ -10,10 +10,34 @@ namespace BookLibrary
     class Library
     {
         string choice = string.Empty;
-
         static ArrayList bookList = new ArrayList();
         static Hashtable bookHash = new Hashtable();
 
+        public Library()
+        {
+            //SOME DEFAULT BOOKS
+            Book b1 = new Book("0143105426", "Pride and Prejudice", "Austen,Jane", 300);
+            Book b2 = new Book("0465069347", "The Republic Of Plato", "Plato", 350);
+            Book b3 = new Book("0226026752", "Aristotle's Nicomachean Ethics", "Aristotle", 300);
+            Book b4 = new Book("0872202100", "Augustine: Political Writings", "Augustine", 300);
+            Book b5 = new Book("0872206637", "On Law, Morality and Politics", "Aquinas, Thomas ", 300);
+            Book b6 = new Book("0023513209", "Hegel: Reason in History", "G.W.F. Hegel", 300);
+            Book b7 = new Book("0872202186", "Marx: Selected Writings", "Marx, Karl", 300);
+            Book b8 = new Book("0446695890", "Admissions", "Lieberman, Nancy", 300);
+            Book b9 = new Book("9780141018", "On the Shortness of Life", "Lucius Annaeus Seneca", 300);
+            Book b10 = new Book("978067499", "Epistulae Morales: v. 1 Letters I-LXV", "Lucius Annaeus Seneca", 300);
+
+            bookList.Add(b1);
+            bookList.Add(b2);
+            bookList.Add(b3);
+            bookList.Add(b4);
+            bookList.Add(b5);
+            bookList.Add(b6);
+            bookList.Add(b7);
+            bookList.Add(b8);
+            bookList.Add(b9);
+            bookList.Add(b10);
+        }
 
         public static void Menu()
         {
@@ -91,9 +115,11 @@ namespace BookLibrary
             //bookList.Sort(comparer);
             //Console.WriteLine("Books sorted by author name");
         }
+
         public void Main()
         {
-            while (true)
+            bool active = true;
+            while (active)
             {
                 Menu();
                 choice = Console.ReadLine();
@@ -104,7 +130,9 @@ namespace BookLibrary
                         NewBook();
                         break;
                     case 2:
-                        //quits the application
+                        active = false;
+                        Console.Clear();
+                        Console.WriteLine("You have choosen to quit this application");
                         break;
                     case 3:
                         ListList();
@@ -145,6 +173,7 @@ namespace BookLibrary
                             Console.WriteLine("Sadly, the book was not found...");
                         break;
                 }
+
                 Console.ReadKey();
                 Console.Clear();
             }
