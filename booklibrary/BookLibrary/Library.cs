@@ -113,14 +113,14 @@ namespace BookLibrary
         }
         public static void Menu()
         {
-            Console.WriteLine("1. New Book");
+            Console.WriteLine("1. Add Book");
             Console.WriteLine("2. Quit");
-            Console.WriteLine("3. List all books");
-            Console.WriteLine("4. Search book (arraylist)");
-            Console.WriteLine("5. Sort books by ISBN");
-            Console.WriteLine("6. Sort books by author");
-            Console.WriteLine("7. List books (hashtable)");
-            Console.WriteLine("8. Search Book (hashtable)");
+            Console.WriteLine("3. List books (ArrayList)");
+            Console.WriteLine("4. Search book (ArrayList)");
+            Console.WriteLine("5. Sort books (ISBN)");
+            Console.WriteLine("6. Sort books (Author)");
+            Console.WriteLine("7. List books (HashTable)");
+            Console.WriteLine("8. Search Book (HashTable)");
         }
 
         public void NewBook()
@@ -142,19 +142,24 @@ namespace BookLibrary
             bookHash.Add(newISBN, newBook);
 
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("New book successfully added to book list and book hash!");
+            Console.WriteLine("New book successfully added to both list types!");
             Console.ResetColor();
         }
         public void ListList()
         {
-            foreach(Book b in bookList)
+            Console.WriteLine("________________________________________________________________________");
+            foreach (Book b in bookList)
             {
                 b.Write();
+                Console.WriteLine("________________________________________________________________________");
             }
         }
         public static void ListHash()
         {
-
+            foreach(Book b in bookHash)
+            {
+                b.Write();
+            }
             //TODO: what purpose does ICollection serve here?
         }
         public static Book SearchList(string ISBN)
