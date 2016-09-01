@@ -65,7 +65,9 @@ namespace BookLibrary
                     case 2:
                         active = false;
                         Console.Clear();
-                        Console.WriteLine("You have choosen to quit this application");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("You have choosen to quit this application...");
+                        Console.ResetColor();
                         break;
                     case 3:
                         ListList();
@@ -115,15 +117,17 @@ namespace BookLibrary
         {
             Console.WriteLine("1. Add Book");
             Console.WriteLine("2. Quit");
+            Console.WriteLine("---------------");
             Console.WriteLine("3. List books (ArrayList)");
             Console.WriteLine("4. Search book (ArrayList)");
             Console.WriteLine("5. Sort books (ISBN)");
             Console.WriteLine("6. Sort books (Author)");
+            Console.WriteLine("---------------");
             Console.WriteLine("7. List books (HashTable)");
             Console.WriteLine("8. Search Book (HashTable)");
         }
 
-        public void NewBook()
+        public static void NewBook()
         {
             Console.WriteLine("Enter book title: ");
             string newTitle = Console.ReadLine();
@@ -145,7 +149,7 @@ namespace BookLibrary
             Console.WriteLine("New book successfully added to both list types!");
             Console.ResetColor();
         }
-        public void ListList()
+        public static void ListList()
         {
             Console.WriteLine("________________________________________________________________________");
             foreach (Book b in bookList)
@@ -179,26 +183,25 @@ namespace BookLibrary
         }
         public static Book SearchHash(string ISBN)
         {
-            foreach (Book b in bookHash)
-            {
-                if (b.ISBN.Equals(ISBN))
-                {
-                    return b;
-                }
-            }
-            return null;
+            //returns a book if the ISBN matches any existing
+            //books ISBN, else returns NULL.
+            return (Book)bookHash[ISBN];
         }
         public static void SortListISBN()
         {
             //USING THE DEFAULT INTERNAL SORT METHOD FOR BOOK CLASS (COMPARETO)
             bookList.Sort();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Books sorted by ISBN (internally using compareto)");
+            Console.ResetColor();
+
         }
         public static void SortListName()
         {
             //USING AN EXTERNAL SORT CLASS WHICH IMPLEMENTS ICOMPARER
             bookList.Sort(new SortByAuthor());
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Books sorted by author");
+            Console.WriteLine("Books sorted by author (using external sort class)");
             Console.ResetColor();
         }
 
