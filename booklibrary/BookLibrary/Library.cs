@@ -190,16 +190,16 @@ namespace BookLibrary
         }
         public static void SortListISBN()
         {
+            //USING THE DEFAULT INTERNAL SORT METHOD FOR BOOK CLASS (COMPARETO)
             bookList.Sort();
         }
         public static void SortListName()
         {
-
-
-            //TODO: what is the deal with the BookComparer class here?
-            //var comparer = new BookComparator();
-            //bookList.Sort(comparer);
-            //Console.WriteLine("Books sorted by author name");
+            //USING AN EXTERNAL SORT CLASS WHICH IMPLEMENTS ICOMPARER
+            bookList.Sort(new SortByAuthor());
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Books sorted by author");
+            Console.ResetColor();
         }
 
     }
