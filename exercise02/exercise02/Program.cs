@@ -13,7 +13,7 @@ namespace exercise02
     {
         static void Main(string[] args)
         {
-            // EXERCISE 2
+            // ------------------EXERCISE 2------------------
 
             //ADDING 3 VALUES ONE AT A TIME
             List<int> numbers = new List<int> { 5, 2, 25 };
@@ -53,10 +53,24 @@ namespace exercise02
             }
             Console.ResetColor();
 
-            // EXERCISE 3
+            // ------------------EXERCISE 3------------------
+
+            numbers.Reverse();
+            numbers.RemoveRange(3, 2);
+            int sumOfListValues = numbers.Sum();
+            int minValue = numbers.Min();
 
 
+            //PRINTING ALL VALUES IN THE LIST USING FOREACH
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            foreach (int num in numbers)
+            {
+                Console.WriteLine(num);
+            }
+            Console.WriteLine("the sum of the values in the list is: " + sumOfListValues);
+            Console.WriteLine("the min value in the list is: " + minValue);
 
+            Console.ResetColor();
         }
     }
 }
