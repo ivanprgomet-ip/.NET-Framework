@@ -16,15 +16,15 @@ namespace BookLibrary
         public Library()
         {
             //DEFAULT BOOKS
-            Book b1 = new Book(" 0143105426", "Pride and Prejudice", "Austen,Jane", 300);
-            Book b2 = new Book(" 0465069347", "The Republic Of Plato", "Plato", 350);
-            Book b3 = new Book(" 0226026752", "Aristotle's Nicomachean Ethics", "Aristotle", 300);
-            Book b4 = new Book(" 0872202100", "Augustine: Political Writings", "Augustine", 300);
-            Book b5 = new Book(" 0872206637", "On Law, Morality and Politics", "Aquinas, Thomas ", 300);
-            Book b6 = new Book(" 0023513209", "Hegel: Reason in History", "G.W.F. Hegel", 300);
-            Book b7 = new Book(" 0872202186", "Marx: Selected Writings", "Marx, Karl", 300);
-            Book b8 = new Book(" 0446695890", "Admissions", "Lieberman, Nancy", 300);
-            Book b9 = new Book(" 9780141018", "On the Shortness of Life", "Lucius Annaeus Seneca", 300);
+            Book b1 = new Book("0143105426", "Pride and Prejudice", "Austen,Jane", 300);
+            Book b2 = new Book("0465069347", "The Republic Of Plato", "Plato", 350);
+            Book b3 = new Book("0226026752", "Aristotle's Nicomachean Ethics", "Aristotle", 300);
+            Book b4 = new Book("0872202100", "Augustine: Political Writings", "Augustine", 300);
+            Book b5 = new Book("0872206637", "On Law, Morality and Politics", "Aquinas, Thomas ", 300);
+            Book b6 = new Book("0023513209", "Hegel: Reason in History", "G.W.F. Hegel", 300);
+            Book b7 = new Book("0872202186", "Marx: Selected Writings", "Marx, Karl", 300);
+            Book b8 = new Book("0446695890", "Admissions", "Lieberman, Nancy", 300);
+            Book b9 = new Book("9780141018", "On the Shortness of Life", "Lucius Annaeus Seneca", 300);
             Book b10 = new Book("978067499", "Epistulae Morales: v. 1 Letters I-LXV", "Lucius Annaeus Seneca", 300);
 
             bookList.Add(b1);
@@ -156,17 +156,21 @@ namespace BookLibrary
         }
         public static void ListHash()
         {
-            foreach(Book b in bookHash)
+            //retrieve all values from HashTable and store in ICollection:
+            ICollection e = bookHash.Values;
+            //iterate over ICollection like you would with a List:
+            Console.WriteLine("________________________________________________________________________");
+            foreach (Book b in e)
             {
                 b.Write();
+                Console.WriteLine("________________________________________________________________________");
             }
-            //TODO: what purpose does ICollection serve here?
         }
         public static Book SearchList(string ISBN)
         {
-            foreach(Book b in bookList)
+            foreach (Book b in bookList)
             {
-                if(b.ISBN.Equals(ISBN))
+                if (b.ISBN.Equals(ISBN))
                 {
                     return b;
                 }
