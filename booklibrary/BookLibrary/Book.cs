@@ -52,5 +52,19 @@ namespace BookLibrary
             //    return 0;
         }
 
+
+        //when you override equals method, it is also recomended that you 
+        //override gethashcode method, othervise the hash codes are not guaranteed 
+        //to be unique
+
+        public override bool Equals(object other)
+        {
+            Book b = (Book)other;
+            return this.ISBN.Equals(b.ISBN);
+        }
+        public override int GetHashCode()
+        {
+            return this.ISBN.GetHashCode();
+        }
     }
 }
