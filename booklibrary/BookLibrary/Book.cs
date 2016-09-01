@@ -52,22 +52,5 @@ namespace BookLibrary
             //    return 0;
         }
 
-
-        #region
-        //public int CompareTo(object o)
-        //{
-        //    Book b = (Book)o;//convert the object to a book which we can actually use
-        //    return this.ISBN.CompareTo(b.ISBN);
-        //}
-        //public override bool Equals(object o)
-        //{
-        //    Book b = (Book)o;//overriding to make Equals relevant for Book objects
-        //    return this.ISBN.Equals(b.ISBN);
-        //}
-        //public override int GetHashCode()
-        //{
-        //    return ISBN.GetHashCode();
-        //}
-        #endregion
     }
 }
