@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace exercise08
 {
+    //EXERCISE 8
     class BruteForcer
     {
         /// <summary>
@@ -15,7 +16,7 @@ namespace exercise08
         /// </summary>
         /// <param name="target"></param>
         /// <param name="myCollection"></param>
-        public void BruteForce(int target, List<int> myCollection)
+        public void Search(int target, List<int> myCollection)
         {
             int counter = 0;
             foreach(int num in myCollection)

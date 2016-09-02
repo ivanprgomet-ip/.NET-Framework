@@ -10,10 +10,28 @@ namespace exercise08
     {
         static void Main(string[] args)
         {
-            BruteForcer searcher = new BruteForcer();//instantiate a searcher
+            //EXERCISE 8
+            Console.WriteLine("EXERCISE 08");
+
+            BruteForcer bruteForce = new BruteForcer();//instantiate a searcher
             List<int> myCollection = new List<int>();//instantiate an empty list
             FillCollection(myCollection);//fill the list with dummy values (0-1000)
-            searcher.BruteForce(849, myCollection);//search inputted list for specific value
+            bruteForce.Search(849, myCollection);//search inputted list for specific value
+
+            Console.WriteLine("------------");
+
+            //EXERCISE 9
+            Console.WriteLine("EXERCISE 08");
+
+            BinarySearcher binarySearch = new BinarySearcher();
+            List<int> myCollection2 = new List<int>();
+            FillCollection(myCollection2);
+            myCollection2.Sort();//neccessary for binarysearch to work propperly
+            PrintList(myCollection2);
+            binarySearch.Search(500, myCollection2);
+
+            Console.WriteLine("------------");
+
         }
 
         public static void FillCollection(List<int> myCollection)
@@ -32,10 +50,14 @@ namespace exercise08
         }
         public static void PrintList(List<int> myCollection)
         {
-            foreach (int num in myCollection)
+            for (int i = 0; i < myCollection.Count; i++)
             {
-                Console.WriteLine(num);
+                Console.WriteLine(i + ": " + myCollection[i]);
             }
+            //foreach (int num in myCollection)
+            //{
+            //    Console.WriteLine(num);
+            //}
         }
     }
 }
