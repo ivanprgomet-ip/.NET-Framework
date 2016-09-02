@@ -24,6 +24,10 @@ namespace exercise02
                 numbers.Add(i + 1);
             }
 
+            //add range
+            List<int> someValuesToBeAdded = new List<int>() { 100, 101, 102};
+            numbers.AddRange(someValuesToBeAdded);
+
             //PRINT INDEX AND CORRESPONDING VALUE IN THE LIST
             for (int i = 0; i < numbers.Count; i++)
             {
