@@ -13,7 +13,7 @@ namespace exercise04
             //add some key value pairs to the dictionary one at a time
             Dictionary<string, int> studentGrades = new Dictionary<string, int>();
             studentGrades.Add("Mark", 69);
-            studentGrades.Add("Simon", 88);
+            studentGrades.Add("Simon", 98);
             studentGrades.Add("Anna", 97);
             studentGrades.Add("Lisa", 47);
             studentGrades.Add("Billy", 63);
@@ -64,21 +64,32 @@ namespace exercise04
                 Console.WriteLine($" {sg.Value}p");
                 Console.ResetColor();
             }
+            Console.WriteLine();
 
             //some more dictionary methods to demo
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine($"There is a total of {studentGrades.LongCount()} students in the class");
 
             //get the student name which has the highest points
-            string bestStudent = string.Empty;
+            List<string> bestStudents = new List<string>();
+
+            
             foreach(KeyValuePair<string,int> kvp in studentGrades)
             {
                 if(kvp.Value.Equals(studentGrades.Values.Max()))
                 {
-                    bestStudent = kvp.Key;
+                    //add students that have the highest scores to the list
+                    string bestStudent = kvp.Key;
+                    bestStudents.Add(bestStudent);
                 }
             }
-            Console.WriteLine($"The student with the highest points is {bestStudent} and has {studentGrades.Values.Max()} in score");
+            Console.WriteLine();
+
+            Console.WriteLine("The student(s) with the best scores are: ");
+            foreach(string student in bestStudents)
+            {
+                Console.WriteLine($"{student}: {studentGrades.Values.Max()}p");
+            }
             Console.ResetColor();
         }
     }
