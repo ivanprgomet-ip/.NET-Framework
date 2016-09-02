@@ -17,7 +17,7 @@ namespace exercise04
             studentGrades.Add("Anna", 97);
             studentGrades.Add("Lisa", 47);
             studentGrades.Add("Billy", 63);
-            studentGrades.Add("Joe", 76);
+            studentGrades.Add("Joe", 77);
             studentGrades.Add("Tom", 77);
             studentGrades.Add("Anne", 93);
             studentGrades.Add("Mary", 98);
@@ -33,6 +33,27 @@ namespace exercise04
                 studentGrades.Add(myStudent, rndGrade);
             }
 
+            //check for a specific key (student) in the dictionary
+            string searchStudent = "Anna";
+            Console.WriteLine(studentGrades.ContainsKey(searchStudent)?"The dictionary contains student "+ searchStudent : "the dictionary doesnt contain the student "+ searchStudent);
+
+            //check for specific grade in dictionary and count how many students have that grade if any
+            int searchGrade = 98;
+            int instances = 0;
+            foreach(KeyValuePair<string,int> sg in studentGrades)
+            {
+                if (sg.Value.Equals(searchGrade))
+                    instances++;
+            }
+            if (instances != 0)
+                Console.WriteLine($"{instances} student(s) have the grade {searchGrade}");
+            else
+                Console.WriteLine($"No student(s) found with the grade {searchGrade}");
+            Console.WriteLine();
+            
+
+
+
             //loop through dictionary and print key values
             foreach(KeyValuePair<string,int> sg in studentGrades)
             {
@@ -41,8 +62,7 @@ namespace exercise04
                 Console.WriteLine($" {sg.Value}p");
                 Console.ResetColor();
             }
-
-
         }
     }
+    //TODO: bonus , make icomparer class that sorts on names
 }
