@@ -12,6 +12,8 @@ namespace exercise07
 
         public Student(string firstname, string lastname) : base(firstname, lastname)
         {
+            //when new student gets created, studies just started, and thus 
+            //are not completed
             studiesCompleted = false;
         }
     }
