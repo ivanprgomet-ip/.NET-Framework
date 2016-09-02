@@ -14,7 +14,7 @@ namespace exercise07
         {
             //when new student gets created, studies just started, and thus 
             //are not completed
-            studiesCompleted = false;
+            studiesCompleted = false; 
         }
     }
 }
