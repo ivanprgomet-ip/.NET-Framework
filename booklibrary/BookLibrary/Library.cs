@@ -98,6 +98,9 @@ namespace BookLibrary
                     case 66:
                         SortListPrice();
                         break;
+                    case 67:
+                        SortListTitle();
+                        break;
                     case 7:
                         ListHash();
                         break;
@@ -133,6 +136,7 @@ namespace BookLibrary
             Console.WriteLine("5. Sort books by ISBN (ArrayList)");
             Console.WriteLine("6. Sort books by Author (ArrayList)");
             Console.WriteLine("66. Sort books by Price (ArrayList)");
+            Console.WriteLine("67. Sort books by title (ArrayList)");
             Console.WriteLine("---------------");
             Console.WriteLine("7. List books (HashTable)");
             Console.WriteLine("8. Search Book (HashTable)");
@@ -223,6 +227,13 @@ namespace BookLibrary
             bookList.Sort(new SortByPrice());
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Books sorted by price (using external sort class)");
+            Console.ResetColor();
+        }
+        private void SortListTitle()
+        {
+            bookList.Sort(new SortByTitle());
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Books sorted by title (using external sort class)");
             Console.ResetColor();
         }
 
