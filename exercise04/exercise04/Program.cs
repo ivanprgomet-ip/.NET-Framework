@@ -93,5 +93,4 @@ namespace exercise04
             Console.ResetColor();
         }
     }
-    //TODO: bonus , make icomparer class that sorts on names
 }
