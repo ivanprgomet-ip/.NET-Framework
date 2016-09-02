@@ -49,19 +49,37 @@ namespace exercise04
                 Console.WriteLine($"{instances} student(s) have the grade {searchGrade}");
             else
                 Console.WriteLine($"No student(s) found with the grade {searchGrade}");
+
+            //remove keyvaluepair where student name matches
+            string studentToRemove = "ivan";
+            Console.WriteLine(studentGrades.Remove(studentToRemove)?studentToRemove+" was successfully removed":"A student named "+studentToRemove+" was not found and could thus not be removed");
+
             Console.WriteLine();
-            
 
-
-
-            //loop through dictionary and print key values
-            foreach(KeyValuePair<string,int> sg in studentGrades)
+            //loop through dictionary and print key value pairs 
+            foreach (KeyValuePair<string,int> sg in studentGrades)
             {
                 Console.Write($"{sg.Key}: ");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($" {sg.Value}p");
                 Console.ResetColor();
             }
+
+            //some more dictionary methods to demo
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine($"There is a total of {studentGrades.LongCount()} students in the class");
+
+            //get the student name which has the highest points
+            string bestStudent = string.Empty;
+            foreach(KeyValuePair<string,int> kvp in studentGrades)
+            {
+                if(kvp.Value.Equals(studentGrades.Values.Max()))
+                {
+                    bestStudent = kvp.Key;
+                }
+            }
+            Console.WriteLine($"The student with the highest points is {bestStudent} and has {studentGrades.Values.Max()} in score");
+            Console.ResetColor();
         }
     }
     //TODO: bonus , make icomparer class that sorts on names
