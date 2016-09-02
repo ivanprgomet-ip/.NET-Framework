@@ -8,11 +8,11 @@ namespace exercise07
 {
     class Student : Person
     {
-        bool studyFinnished;
+        public bool studiesCompleted;
 
         public Student(string firstname, string lastname) : base(firstname, lastname)
         {
-            studyFinnished = false;
+            studiesCompleted = false;
         }
     }
 }

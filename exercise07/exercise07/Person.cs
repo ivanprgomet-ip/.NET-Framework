@@ -8,8 +8,8 @@ namespace exercise07
 {
     class Person
     {
-        string firstName;
-        string lastName;
+        public string firstName;
+        public string lastName;
         int age;
         
         public Person(string firstname, string lastname)
