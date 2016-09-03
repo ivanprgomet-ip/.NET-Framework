@@ -15,7 +15,7 @@ namespace exercise08
         public void BubbleSort(List<int> myCollection)
         {
             bool unsorted = true;
-            int end = -1;
+            int end = myCollection.Count-1;
 
             while (unsorted)
             {

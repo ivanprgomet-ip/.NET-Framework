@@ -11,17 +11,16 @@ namespace exercise08
         static void Main(string[] args)
         {
             //EXERCISE 8
-            Console.WriteLine("EXERCISE 08");
+            Console.WriteLine("EXERCISE 08 | BRUTE FORCE SEARCH");
 
             BruteForcer bruteForce = new BruteForcer();//instantiate a searcher
             List<int> myCollection = new List<int>();//instantiate an empty list
             FillCollection(myCollection);//fill the list with dummy values (0-1000)
             bruteForce.Search(849, myCollection);//search inputted list for specific value
-
             Console.WriteLine("------------");
 
             //EXERCISE 9
-            Console.WriteLine("EXERCISE 09");
+            Console.WriteLine("EXERCISE 09 | BINARYSEARCH");
 
             BinarySearcher binarySearch = new BinarySearcher();
             List<int> myCollection2 = new List<int>();
@@ -33,7 +32,7 @@ namespace exercise08
 
             //EXERCISE 10
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("EXERCISE 10");
+            Console.WriteLine("EXERCISE 10 | BUBBLESORT");
             BubbleSorter bubbler = new BubbleSorter();
             List<int> myCollection3 = new List<int>();
             FillCollection(myCollection3);
