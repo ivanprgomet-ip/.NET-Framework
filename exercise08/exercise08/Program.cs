@@ -21,7 +21,7 @@ namespace exercise08
             Console.WriteLine("------------");
 
             //EXERCISE 9
-            Console.WriteLine("EXERCISE 08");
+            Console.WriteLine("EXERCISE 09");
 
             BinarySearcher binarySearch = new BinarySearcher();
             List<int> myCollection2 = new List<int>();
@@ -29,8 +29,18 @@ namespace exercise08
             myCollection2.Sort();//neccessary for binarysearch to work propperly
             PrintList(myCollection2);
             binarySearch.Search(500, myCollection2);
-
             Console.WriteLine("------------");
+
+            //EXERCISE 10
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("EXERCISE 10");
+            BubbleSorter bubbler = new BubbleSorter();
+            List<int> myCollection3 = new List<int>();
+            FillCollection(myCollection3);
+            bubbler.BubbleSort(myCollection3);
+            PrintList(myCollection3);
+            Console.WriteLine("------------");
+            Console.ResetColor();
 
         }
 

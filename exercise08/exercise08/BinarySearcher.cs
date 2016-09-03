@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace exercise08
 {
     /// <summary>
-    /// sort collections based on binary sort algorithm
+    /// sort collections based on binary sort algorithm.
+    /// EXERCISE 9
     /// </summary>
     class BinarySearcher
     {
