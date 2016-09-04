@@ -46,6 +46,7 @@
     <Compile Include="BinarySearcher.cs" />
     <Compile Include="BruteForcer.cs" />
     <Compile Include="BubbleSorter.cs" />
+    <Compile Include="ExchangeSorter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

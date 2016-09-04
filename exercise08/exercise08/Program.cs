@@ -41,6 +41,16 @@ namespace exercise08
             Console.WriteLine("------------");
             Console.ResetColor();
 
+            //EXERCISE 11
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("EXERCISE 10 | EXCHANGE SORT");
+            ExchangeSorter exchanger = new ExchangeSorter();
+            List<int> myCollection4 = new List<int>();
+            FillCollection(myCollection4);
+            exchanger.ExchangeSort(myCollection4);
+            PrintList(myCollection4);
+            Console.WriteLine("------------");
+            Console.ResetColor();
         }
 
         public static void FillCollection(List<int> myCollection)
