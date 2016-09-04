@@ -12,10 +12,9 @@ namespace exercise08
         {
             //EXERCISE 8
             Console.WriteLine("EXERCISE 08 | BRUTE FORCE SEARCH");
-
             BruteForcer bruteForce = new BruteForcer();//instantiate a searcher
             List<int> myCollection = new List<int>();//instantiate an empty list
-            FillCollection(myCollection);//fill the list with dummy values (0-1000)
+            PopulateCollection(myCollection);//fill the list with dummy values (0-1000)
             bruteForce.Search(849, myCollection);//search inputted list for specific value
             Console.WriteLine("------------");
 
@@ -24,19 +23,22 @@ namespace exercise08
 
             BinarySearcher binarySearch = new BinarySearcher();
             List<int> myCollection2 = new List<int>();
-            FillCollection(myCollection2);
+            PopulateCollection(myCollection2);
             myCollection2.Sort();//neccessary for binarysearch to work propperly
             PrintList(myCollection2);
             binarySearch.Search(500, myCollection2);
             Console.WriteLine("------------");
 
+
+
+            Sorter s = new Sorter();
+
             //EXERCISE 10
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("EXERCISE 10 | BUBBLESORT");
-            BubbleSorter bubbler = new BubbleSorter();
             List<int> myCollection3 = new List<int>();
-            FillCollection(myCollection3);
-            bubbler.BubbleSort(myCollection3);
+            PopulateCollection(myCollection3);
+            s.BubbleSort(myCollection3);
             PrintList(myCollection3);
             Console.WriteLine("------------");
             Console.ResetColor();
@@ -44,16 +46,15 @@ namespace exercise08
             //EXERCISE 11
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("EXERCISE 10 | EXCHANGE SORT");
-            ExchangeSorter exchanger = new ExchangeSorter();
             List<int> myCollection4 = new List<int>();
-            FillCollection(myCollection4);
-            exchanger.ExchangeSort(myCollection4);
+            PopulateCollection(myCollection4);
+            s.ExchangeSort(myCollection4);
             PrintList(myCollection4);
             Console.WriteLine("------------");
             Console.ResetColor();
         }
 
-        public static void FillCollection(List<int> myCollection)
+        public static void PopulateCollection(List<int> myCollection)
         {
             //foundation for searching or sorting on
             Random rnd = new Random();
