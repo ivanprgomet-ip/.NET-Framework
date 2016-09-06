@@ -21,7 +21,7 @@ namespace exercise05
             //store index for dice throw and throw score
             for (int i = 0; i < throws; i++)
             {
-                int currentThrow = rnd.Next(0, 7) + 1;
+                int currentThrow = rnd.Next(0, 6) + 1;
                 diceScores.Add(i, currentThrow);
             }
 
@@ -72,6 +72,22 @@ namespace exercise05
 
 
 
+
+
+
+
+
+
+            //throw dice and add to a sum
+            int value = 0;
+            int sum = 0;
+            Dictionary<int, int> diceThrows = new Dictionary<int, int>();
+            for (int i = 0; i < 200; i++)
+            {
+                value = rnd.Next(0, 6) + 1;
+                sum += value;
+                Console.WriteLine($"Index: {i} Value: {value} Total: {sum}");
+            }
         }
     }
 }
