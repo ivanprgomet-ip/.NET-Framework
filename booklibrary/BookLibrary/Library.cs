@@ -236,6 +236,5 @@ namespace BookLibrary
             Console.WriteLine("Books sorted by title (using external sort class)");
             Console.ResetColor();
         }
-
     }
 }
