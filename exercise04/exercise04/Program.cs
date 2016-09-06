@@ -10,6 +10,16 @@ namespace exercise04
     {
         static void Main(string[] args)
         {
+            //Custom addrange made for adding to lists togetger into a Dictionary
+            List<string> keys = new List<string>() { "Bob", "Cindy", "Kelly", "Tai","Bernie", "Connor", "Greg", "Bud", "Victor", "Mark" };
+            List<int> values = new List<int>() { 44, 36, 76,73,34,67,77,99,43,26 };
+            Dictionary<string, int> MyDict = new Dictionary<string, int>();
+            AddRange(MyDict, keys, values);
+            PrintDictionary(MyDict);
+            Console.ReadLine();
+            Console.ReadKey();
+
+
             //add some key value pairs to the dictionary one at a time
             Dictionary<string, int> studentGrades = new Dictionary<string, int>();
             studentGrades.Add("Mark", 69);
@@ -28,19 +38,19 @@ namespace exercise04
             for (int i = 0; i < 3; i++)
             {
                 string myStudent = "Student" + i;
-                
+
                 int rndGrade = rnd.Next(0, 100);
                 studentGrades.Add(myStudent, rndGrade);
             }
 
             //check for a specific key (student) in the dictionary
             string searchStudent = "Anna";
-            Console.WriteLine(studentGrades.ContainsKey(searchStudent)?"The dictionary contains student "+ searchStudent : "the dictionary doesnt contain the student "+ searchStudent);
+            Console.WriteLine(studentGrades.ContainsKey(searchStudent) ? "The dictionary contains student " + searchStudent : "the dictionary doesnt contain the student " + searchStudent);
 
             //check for specific grade in dictionary and count how many students have that grade if any
             int searchGrade = 98;
             int instances = 0;
-            foreach(KeyValuePair<string,int> sg in studentGrades)
+            foreach (KeyValuePair<string, int> sg in studentGrades)
             {
                 if (sg.Value.Equals(searchGrade))
                     instances++;
@@ -52,12 +62,12 @@ namespace exercise04
 
             //remove keyvaluepair where student name matches
             string studentToRemove = "ivan";
-            Console.WriteLine(studentGrades.Remove(studentToRemove)?studentToRemove+" was successfully removed":"A student named "+studentToRemove+" was not found and could thus not be removed");
+            Console.WriteLine(studentGrades.Remove(studentToRemove) ? studentToRemove + " was successfully removed" : "A student named " + studentToRemove + " was not found and could thus not be removed");
 
             Console.WriteLine();
 
             //loop through dictionary and print key value pairs 
-            foreach (KeyValuePair<string,int> sg in studentGrades)
+            foreach (KeyValuePair<string, int> sg in studentGrades)
             {
                 Console.Write($"{sg.Key}: ");
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -73,10 +83,10 @@ namespace exercise04
             //get the student name which has the highest points
             List<string> bestStudents = new List<string>();
 
-            
-            foreach(KeyValuePair<string,int> kvp in studentGrades)
+
+            foreach (KeyValuePair<string, int> kvp in studentGrades)
             {
-                if(kvp.Value.Equals(studentGrades.Values.Max()))
+                if (kvp.Value.Equals(studentGrades.Values.Max()))
                 {
                     //add students that have the highest scores to the list
                     string bestStudent = kvp.Key;
@@ -86,11 +96,63 @@ namespace exercise04
             Console.WriteLine();
 
             Console.WriteLine("The student(s) with the best scores are: ");
-            foreach(string student in bestStudents)
+            foreach (string student in bestStudents)
             {
                 Console.WriteLine($"{student}: {studentGrades.Values.Max()}p");
             }
             Console.ResetColor();
+        }
+
+        private static void PrintDictionary(Dictionary<string, int> myDict)
+        {
+            foreach (KeyValuePair<string, int> kvp in myDict)
+            {
+                Console.WriteLine(kvp.Key + ": " + kvp.Value);
+            }
+        }
+
+        public static void AddRange(Dictionary<string, int> myDict, List<string> keys, List<int> values)
+        {
+
+            //see if there are more keys or more values in the two lists
+            int count = 0;
+
+            if (keys.Count > values.Count)
+            {
+                count = keys.Count;
+
+                //more keys than values supplied, handling it by giving the overflow keys default values
+                for (int i = 0; i < count; i++)
+                {
+                    if (i >= values.Count)//if current index is higher than or equal to the total amount of values, give values a default 
+                        myDict.Add(keys[i], -1);
+                    else
+                        myDict.Add(keys[i], values[i]);
+                }
+            }
+            else if (values.Count > keys.Count)
+            {
+                count = values.Count;
+
+                //more values than keys supplied, handling it by giving the values default keys
+                for (int i = 0; i < count; i++)
+                {
+                    if (i >= keys.Count)
+                        myDict.Add("DefaultKey"+i, values[i]);
+                    else
+                        myDict.Add(keys[i], values[i]);
+                }
+            }
+            else
+            {
+                count = keys.Count;
+
+                //simplest scenario to handle. the total amount of keys and values supplied are the same.
+                for (int i = 0; i < count; i++)
+                {
+                        myDict.Add(keys[i], values[i]);
+                }
+            }
         }
     }
 }
