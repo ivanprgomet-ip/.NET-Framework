@@ -38,7 +38,7 @@ namespace exercise05
             Dictionary<string, int> orderedScores = new Dictionary<string, int>();
 
             //add default keys 1-7 with 0 as values. values gets added later
-            for (int i = 1; i < 8; i++)
+            for (int i = 1; i < 7; i++)
             {
                 orderedScores.Add(i+"'s", 0);
             }
@@ -59,8 +59,6 @@ namespace exercise05
                     orderedScores["5's"]++;
                 if (kvp.Value == 6)
                     orderedScores["6's"]++;
-                if (kvp.Value == 7)
-                    orderedScores["7's"]++;
 
             }
 
@@ -71,6 +69,9 @@ namespace exercise05
                 Console.WriteLine(kvp.Key+": "+kvp.Value+" times");
             }
             Console.ResetColor();
+
+
+
         }
     }
 }
