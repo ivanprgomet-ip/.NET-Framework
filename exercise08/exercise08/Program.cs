@@ -16,15 +16,25 @@ namespace exercise08
             Console.WriteLine("EXERCISE 08 | BRUTE FORCE SEARCH");
             List<int> myCollection = new List<int>();//instantiate an empty list
             PopulateCollection(myCollection);//fill the list with dummy values (0-1000)
-            se.BruteForceSearch(849, myCollection);//search inputted list for specific value
+            se.BruteForceSearchHard(849, myCollection);//search inputted list for specific value
             Console.WriteLine("------------");
+
+
+            //TODO: THIS IS A CHALLENGE!
+            List<int> numbers = new List<int>();
+            PopulateCollection(numbers);
+            se.BruteForceSearchSoft(numbers, 2);
+            Console.ReadKey();
+
+
+
             //EXERCISE 9
             Console.WriteLine("EXERCISE 09 | BINARYSEARCH");
             List<int> myCollection2 = new List<int>();
             PopulateCollection(myCollection2);
             myCollection2.Sort();//neccessary for binarysearch to work propperly
             PrintList(myCollection2);
-            se.BruteForceSearch(500, myCollection2);
+            se.BruteForceSearchHard(500, myCollection2);
             Console.WriteLine("------------");
 
 

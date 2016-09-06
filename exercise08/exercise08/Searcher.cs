@@ -8,7 +8,7 @@ namespace exercise08
 {
     class Searcher
     {
-        public void BruteForceSearch(int target, List<int> myCollection)
+        public void BruteForceSearchHard(int target, List<int> myCollection)
         {
             int counter = 0;
             foreach (int num in myCollection)
@@ -30,6 +30,26 @@ namespace exercise08
             }
             else
                 Console.WriteLine("The target " + target + " is on index " + myCollection.BinarySearch(target) + " in the collection");
+        }
+
+        public void BruteForceSearchSoft(List<int> toBeSearched, int searchTarget)
+        {
+            bool containsTarget = false;
+            int index = 0;
+            Console.WriteLine("----------------------");
+
+            foreach (int i in toBeSearched)
+            {
+                
+                if (i.ToString().Contains(searchTarget.ToString()))
+                {
+                    Console.WriteLine(index + ": " + i);
+                    containsTarget = true;
+                }
+                index++;
+            }
+
+            Console.WriteLine(containsTarget ? "Searchtarget(s) found" : "No Searchtarget(s) found");
         }
     }
 }
