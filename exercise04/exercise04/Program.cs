@@ -6,18 +6,31 @@ using System.Threading.Tasks;
 
 namespace exercise04
 {
-    class Program
+    //class has to be static for extension method to work
+    static class Program
     {
         static void Main(string[] args)
         {
-            //Custom addrange made for adding to lists togetger into a Dictionary
+            //Custom addrange made for adding to lists togetger into a Dictionary (same as below extension method)
             List<string> keys = new List<string>() { "Bob", "Cindy", "Kelly", "Tai","Bernie", "Connor", "Greg", "Bud", "Victor", "Mark" };
             List<int> values = new List<int>() { 44, 36, 76,73,34,67,77,99,43,26 };
             Dictionary<string, int> MyDict = new Dictionary<string, int>();
+            MyDict.Add("Eric", 100);
             AddRange(MyDict, keys, values);
             PrintDictionary(MyDict);
             Console.ReadLine();
             Console.ReadKey();
+
+            //Extension method for dictionary class (same as above)
+            List<string> keys2 = new List<string>() { "exolar", "bubbus", "analius", "taios3", "gegeki", "furya", "butcher bay", "death star", "holomon"};
+            List<int> values2 = new List<int>() { 4356644, 535, 7353546, 73253, 323454, 64567, 734657, 346599, 45367, 454356 };
+            Dictionary<string, int> MyDict2 = new Dictionary<string, int>();
+            MyDict2.Add("dagobah", 34987);
+            MyDict2.AddRangeExtension(keys2, values2);
+            PrintDictionary(MyDict2);
+            Console.ReadLine();
+            Console.ReadKey();
+
 
 
             //add some key value pairs to the dictionary one at a time
@@ -151,6 +164,50 @@ namespace exercise04
                 for (int i = 0; i < count; i++)
                 {
                         myDict.Add(keys[i], values[i]);
+                }
+            }
+        }
+
+        static void AddRangeExtension(this Dictionary<string,int> myDict, List<string>keys, List<int>values)
+        {
+
+            //see if there are more keys or more values in the two lists
+            int count = 0;
+
+            if (keys.Count > values.Count)
+            {
+                count = keys.Count;
+
+                //more keys than values supplied, handling it by giving the overflow keys default values
+                for (int i = 0; i < count; i++)
+                {
+                    if (i >= values.Count)//if current index is higher than or equal to the total amount of values, give values a default 
+                        myDict.Add(keys[i], -1);
+                    else
+                        myDict.Add(keys[i], values[i]);
+                }
+            }
+            else if (values.Count > keys.Count)
+            {
+                count = values.Count;
+
+                //more values than keys supplied, handling it by giving the values default keys
+                for (int i = 0; i < count; i++)
+                {
+                    if (i >= keys.Count)
+                        myDict.Add("DefaultKey" + i, values[i]);
+                    else
+                        myDict.Add(keys[i], values[i]);
+                }
+            }
+            else
+            {
+                count = keys.Count;
+
+                //simplest scenario to handle. the total amount of keys and values supplied are the same.
+                for (int i = 0; i < count; i++)
+                {
+                    myDict.Add(keys[i], values[i]);
                 }
             }
         }
