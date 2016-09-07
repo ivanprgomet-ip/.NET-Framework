@@ -36,36 +36,39 @@ namespace exercise08
 
             bool loginSucceded = false;
             int index = 0;
-            while (!loginSucceded)
+
+            Console.WriteLine("[1] manual attempt");
+            Console.WriteLine("[2] Use PasswordAnnihilator to crack password");
+            string choice = Console.ReadLine();
+            string passwordInput = string.Empty;
+            while (true)
             {
-                Console.WriteLine("[1] manual attempt");
-                Console.WriteLine("[2] Use PasswordAnnihilator to crack password");
-                string choice = Console.ReadLine();
-                string passwordInput = string.Empty;
                 switch (choice)
                 {
                     case "1":
                         break;
                     case "2":
-                        rndPassword = PasswordAnnihilator.SeedPasswordCombinations(index).ToString();
-                        if (passwordInput.Equals(rndPassword))
+                        passwordInput = SeedNumberCombinations(index).ToString();//this is where the string conversion happens
+                        if (rndPassword == passwordInput)
+                        {
                             loginSucceded = true;
+                        }
                         break;
                     default:
                         Console.WriteLine("Enter legit input");
                         break;
                 }
-
                 if (loginSucceded)
                 {
                     Console.WriteLine("Login successful!");
+                    Console.ReadKey();
                     break;
                 }
                 else
-                    Console.WriteLine("Login failed");
+                    Console.WriteLine($"Attempt input: {index} = Login failed");
                 index++;
             }
-            
+
             Console.WriteLine(rndPassword);
             Console.WriteLine("_____________________________");
             Console.ResetColor();
@@ -103,6 +106,11 @@ namespace exercise08
             //PrintList(myCollection4);
             //Console.WriteLine("------------");
             //Console.ResetColor();
+        }
+
+        private static int SeedNumberCombinations(int index)
+        {
+            return index;
         }
 
         public static void PopulateCollection(List<int> myCollection)
