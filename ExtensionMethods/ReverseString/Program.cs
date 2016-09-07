@@ -11,11 +11,11 @@ namespace ReverseString
         static void Main(string[] args)
         {
             //INCLASS EX 1
-            //Console.WriteLine("Enter a word: ");
-            //string word = Console.ReadLine();
-            //Console.WriteLine();
-            //Console.WriteLine(word.ReverseString());
-            //Console.WriteLine();
+            Console.WriteLine("Enter a word: ");
+            string word = Console.ReadLine();
+            Console.WriteLine();
+            Console.WriteLine(word.ReverseString());
+            Console.WriteLine();
 
             //INCLASS EX 2
             List<Person> persons = new List<Person>()
@@ -46,6 +46,24 @@ namespace ReverseString
                 Console.ReadKey();
                 Console.ResetColor();
             }
+
+
+
+            //INCLASS EX 3
+            Console.WriteLine("__________________________");
+            Console.WriteLine("BEFORE SORTING ON FIRSTNAME");
+            foreach(Person p in persons)
+            {
+                Console.WriteLine($"Fullname: {p.Firstname}, {p.Lastname}, adress: {p.Adress}, age: {p.Age}");
+            }
+            Console.WriteLine("__________________________");
+            Console.WriteLine("AFTER SORTING ON FIRSTNAME");
+            persons.Sort();
+            foreach (Person p in persons)
+            {
+                Console.WriteLine($"Fullname: {p.Firstname}, {p.Lastname}, adress: {p.Adress}, age: {p.Age}");
+            }
+
         }
     }
     static class StringExtensions

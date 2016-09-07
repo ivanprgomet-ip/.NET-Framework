@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ReverseString
 {
-    public class Person
+    public class Person : IComparable
     {
         public string Firstname;
         public string Lastname;
@@ -25,6 +25,11 @@ namespace ReverseString
             this.Age = age;
         }
 
+        public int CompareTo(object other)
+        {
+            Person p = (Person)other;
+            return this.Firstname.CompareTo(p.Firstname);
+        }
     }
     public static class PersonExtensions
     {
@@ -38,6 +43,11 @@ namespace ReverseString
                 }
             }
             return null;
+        }
+        public static void SortList(this List<Person> persons)
+        {
+            persons.Sort();
+            Console.WriteLine("List sorted by firstname");
         }
     }
 }
