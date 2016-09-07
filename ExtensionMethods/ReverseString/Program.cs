@@ -23,15 +23,19 @@ namespace ReverseString
         public static string ReverseString(this string s)
         {
             List<char> chars = new List<char>();
-
             foreach(char c in s)
             {
                 chars.Add(c);
             }
-            chars.Reverse();
+
+            List<char> reversedChars = new List<char>();
+            for (int i = chars.Count-1; i >= 0; i--)
+            {
+                reversedChars.Add(chars[i]);
+            }
 
             string reversed = string.Empty;
-            foreach(char c in chars)
+            foreach(char c in reversedChars)
             {
                 reversed += c;
             }
