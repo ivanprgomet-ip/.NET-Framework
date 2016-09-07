@@ -10,11 +10,42 @@ namespace ReverseString
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a word: ");
-            string word = Console.ReadLine();
-            Console.WriteLine();
-            Console.WriteLine(word.ReverseString());
-            Console.WriteLine();
+            //INCLASS EX 1
+            //Console.WriteLine("Enter a word: ");
+            //string word = Console.ReadLine();
+            //Console.WriteLine();
+            //Console.WriteLine(word.ReverseString());
+            //Console.WriteLine();
+
+            //INCLASS EX 2
+            List<Person> persons = new List<Person>()
+            {
+                new Person("ivan","prgomet","plöjargränd", "24"),
+                new Person("Mark","Stevens","5th Avenue","42"),
+                new Person("Cindy","Kellson","8th Avenue","42"),
+                new Person("Bobby","Smith","CrystalStreet","42"),
+                new Person("Kelly","Schmidt","19th Avenue","42"),
+            };
+
+            Console.WriteLine("Search on Firstname: ");
+            string search = Console.ReadLine();
+
+            Person result = persons.SearchPerson(search);
+
+            if(result==null)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Person not found...");
+                Console.ReadKey();
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"Fullname: {result.Firstname}, {result.Lastname}, adress: {result.Adress}, age: {result.Age}");
+                Console.ReadKey();
+                Console.ResetColor();
+            }
         }
     }
     static class StringExtensions

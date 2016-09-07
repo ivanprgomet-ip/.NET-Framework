@@ -11,20 +11,20 @@ namespace CrackPassword
         static void Main(string[] args)
         {
             //SIMULATE WAITING
-            while (true)
-            {
-                for (int i = 0; i <= 10; i++)
-                {
-                    Console.Clear();
-                    Console.WriteLine(i);
-                    System.Threading.Thread.Sleep(100);
-                }
-                break;
-            }
+            //while (true)
+            //{
+            //    for (int i = 0; i <= 10; i++)
+            //    {
+            //        Console.Clear();
+            //        Console.WriteLine(i);
+            //        System.Threading.Thread.Sleep(100);
+            //    }
+            //    break;
+            //}
 
             //BREAK A PASSWORD
             Console.ForegroundColor = ConsoleColor.Cyan;
-            List<string> passwords = new List<string>() { "234", "361", "123", "842", "567" };
+            List<string> passwords = new List<string>() { "car", "house", "screen", "cba", "kit" };
             Random rnd = new Random();
             int rndIndex = rnd.Next(0, passwords.Count);
             string rndPassword = passwords[rndIndex].ToString();
@@ -34,8 +34,8 @@ namespace CrackPassword
             bool loginSucceded = false;
             int index = 0;
 
-            Console.WriteLine("[1] manual attempt");
-            Console.WriteLine("[2] Use PasswordAnnihilator to crack password");
+            Console.WriteLine("[1] Manual attempt");
+            Console.WriteLine("[2] Crack password");
             string choice = Console.ReadLine();
             string passwordInput = string.Empty;
             while (!loginSucceded)
@@ -75,6 +75,10 @@ namespace CrackPassword
         private static int SeedNumberCombinations(int index)
         {
             return index;
+        }
+        private static string SeedCombinations(int index, bool PasswordFound)
+        {
+            return string.Empty;
         }
     }
 }
