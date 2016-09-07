@@ -16,7 +16,6 @@ namespace ReverseString
             Console.WriteLine(word.ReverseString());
             Console.WriteLine();
         }
-
     }
     static class StringExtensions
     {
