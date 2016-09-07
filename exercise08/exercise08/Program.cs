@@ -25,6 +25,19 @@ namespace exercise08
             //Console.ReadKey();
 
 
+
+            //SIMULATE WAITING
+            while (true)
+            {
+                for (int i = 0; i <= 10; i++)
+                {
+                    Console.Clear();
+                    Console.WriteLine(i);
+                    System.Threading.Thread.Sleep(100);
+                }
+                break;
+            }
+
             //BREAK A PASSWORD
             Console.ForegroundColor = ConsoleColor.Cyan;
             List<string> passwords = new List<string>() { "234", "361", "123", "842", "567" };
@@ -41,11 +54,12 @@ namespace exercise08
             Console.WriteLine("[2] Use PasswordAnnihilator to crack password");
             string choice = Console.ReadLine();
             string passwordInput = string.Empty;
-            while (true)
+            while (!loginSucceded)
             {
                 switch (choice)
                 {
                     case "1":
+                        //not implemented 
                         break;
                     case "2":
                         passwordInput = SeedNumberCombinations(index).ToString();//this is where the string conversion happens
