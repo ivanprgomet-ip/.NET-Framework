@@ -78,6 +78,13 @@ namespace CrackPassword
         }
         private static string SeedCombinations(int index, bool PasswordFound)
         {
+            List<string> alphabet = new List<string>() { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
+
+            if (index < alphabet.Count)
+                return alphabet[index];
+            else if (index > alphabet.Count)
+                return alphabet[0] + alphabet[index];
+
             return string.Empty;
         }
     }

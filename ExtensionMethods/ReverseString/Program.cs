@@ -51,13 +51,13 @@ namespace ReverseString
 
             //INCLASS EX 3
             Console.WriteLine("__________________________");
-            Console.WriteLine("BEFORE SORTING ON FIRSTNAME");
+            Console.WriteLine("* NOT SORTED *");
             foreach(Person p in persons)
             {
                 Console.WriteLine($"Fullname: {p.Firstname}, {p.Lastname}, adress: {p.Adress}, age: {p.Age}");
             }
             Console.WriteLine("__________________________");
-            Console.WriteLine("AFTER SORTING ON FIRSTNAME");
+            Console.WriteLine("* SORTED ON FIRSTNAME *");
             persons.Sort();
             foreach (Person p in persons)
             {
