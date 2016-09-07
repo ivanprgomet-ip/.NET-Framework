@@ -12,17 +12,17 @@ namespace exercise08
         {
             Searcher se = new Searcher();
 
-            //EXERCISE 8
-            Console.WriteLine("EXERCISE 08 | BRUTE FORCE SEARCH");
-            List<int> myCollection = new List<int>();//instantiate an empty list
-            PopulateCollection(myCollection);//fill the list with dummy values (0-1000)
-            se.BruteForceSearchHard(849, myCollection);//search inputted list for specific value
-            Console.WriteLine("------------");
+            ////EXERCISE 8
+            //Console.WriteLine("EXERCISE 08 | BRUTE FORCE SEARCH");
+            //List<int> myCollection = new List<int>();//instantiate an empty list
+            //PopulateCollection(myCollection);//fill the list with dummy values (0-1000)
+            //se.BruteForceSearchHard(849, myCollection);//search inputted list for specific value
+            //Console.WriteLine("------------");
 
-            List<int> numbers = new List<int>();
-            PopulateCollection(numbers);
-            se.BruteForceSearchSoft(numbers, 849);
-            Console.ReadKey();
+            //List<int> numbers = new List<int>();
+            //PopulateCollection(numbers);
+            //se.BruteForceSearchSoft(numbers, 849);
+            //Console.ReadKey();
 
             //EXERCISE 9
             Console.WriteLine("EXERCISE 09 | BINARYSEARCH");
@@ -30,31 +30,31 @@ namespace exercise08
             PopulateCollection(myCollection2);
             myCollection2.Sort();//neccessary for binarysearch to work propperly
             PrintList(myCollection2);
-            se.BruteForceSearchHard(500, myCollection2);
+            se.BinarySearch(800, myCollection2); //the binary search
             Console.WriteLine("------------");
 
 
 
-            Sorter s = new Sorter();
+            //Sorter s = new Sorter();
 
-            //EXERCISE 10
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("EXERCISE 10 | BUBBLESORT");
-            List<int> myCollection3 = new List<int>();
-            PopulateCollection(myCollection3);
-            s.BubbleSort(myCollection3);
-            PrintList(myCollection3);
-            Console.WriteLine("------------");
-            Console.ResetColor();
-            //EXERCISE 11
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("EXERCISE 10 | EXCHANGE SORT");
-            List<int> myCollection4 = new List<int>();
-            PopulateCollection(myCollection4);
-            s.ExchangeSort(myCollection4);
-            PrintList(myCollection4);
-            Console.WriteLine("------------");
-            Console.ResetColor();
+            ////EXERCISE 10
+            //Console.ForegroundColor = ConsoleColor.Magenta;
+            //Console.WriteLine("EXERCISE 10 | BUBBLESORT");
+            //List<int> myCollection3 = new List<int>();
+            //PopulateCollection(myCollection3);
+            //s.BubbleSort(myCollection3);
+            //PrintList(myCollection3);
+            //Console.WriteLine("------------");
+            //Console.ResetColor();
+            ////EXERCISE 11
+            //Console.ForegroundColor = ConsoleColor.Yellow;
+            //Console.WriteLine("EXERCISE 10 | EXCHANGE SORT");
+            //List<int> myCollection4 = new List<int>();
+            //PopulateCollection(myCollection4);
+            //s.ExchangeSort(myCollection4);
+            //PrintList(myCollection4);
+            //Console.WriteLine("------------");
+            //Console.ResetColor();
         }
 
        

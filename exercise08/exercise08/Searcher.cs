@@ -22,16 +22,6 @@ namespace exercise08
             else
                 Console.WriteLine($"No instances of {target} was found in the collection");
         }
-        public void BinarySearch(int target, List<int> myCollection)
-        {
-            if (myCollection.BinarySearch(target) < 0)
-            {
-                Console.WriteLine("The target " + target + " doesnt exist in the collection");
-            }
-            else
-                Console.WriteLine("The target " + target + " is on index " + myCollection.BinarySearch(target) + " in the collection");
-        }
-
         public void BruteForceSearchSoft(List<int> toBeSearched, int searchTarget)
         {
             bool containsTarget = false;
@@ -40,7 +30,7 @@ namespace exercise08
 
             foreach (int i in toBeSearched)
             {
-                
+
                 if (i.ToString().Contains(searchTarget.ToString()))
                 {
                     Console.WriteLine(index + ": " + i);
@@ -51,5 +41,36 @@ namespace exercise08
 
             Console.WriteLine(containsTarget ? "Searchtarget(s) found" : "No Searchtarget(s) found");
         }
+
+        public void BinarySearch(int target, List<int> myCollection)
+        {
+            //keep in mind the collection is sorted!
+            int high = myCollection.Count;
+            int low = 0;
+            int mid;
+
+            while (high - low > 1)//while we have at least one point to compare with
+            {
+                mid = (high + low) / 2;//find the middle index
+                if (myCollection[mid] > target)
+                {
+                    high = mid; //cutting the collection by placing new highest index
+                }
+                else
+                {
+                    low = mid; //cutting the collection by placing new lowest index
+                }
+            }
+
+            if (low == -1 || myCollection[low] != target)
+            {
+                Console.WriteLine("Target not found in collection");
+            }
+            else
+            {
+                Console.WriteLine($"{target} found on index {low}");
+            }
+        }
+
     }
 }
