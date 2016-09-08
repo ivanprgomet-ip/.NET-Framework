@@ -33,7 +33,7 @@ namespace MyDal_Lib
         }
         public void DeleteAuthor(int id)
         {
-            string comm = $"Delete From Authors Where Id={id}";
+            string comm = $"DELETE FROM Authors WHERE AuthorID={id}";
             using (SqlCommand sqlComm = new SqlCommand(comm, _sqlConn))
             {
                 sqlComm.ExecuteNonQuery();
@@ -88,6 +88,29 @@ namespace MyDal_Lib
                 dataTable.Load(reader);
             }
             return dataTable;
+        }
+        public void DisplayConnectionState()
+        {
+            if (_sqlConn == null)
+            {
+                Console.WriteLine("Connection: Null");
+            }
+            else
+            {
+                if (_sqlConn.State == ConnectionState.Open)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Connection: Open");
+                    Console.ResetColor();
+                }
+                else if (_sqlConn.State == ConnectionState.Closed)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Connection: Closed");
+                    Console.ResetColor();
+                }
+            }
+            
         }
     }
 }
