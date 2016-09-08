@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace MyDal.DAL
+namespace MyDal_Lib
 {
     public class DAL_Author
     {
