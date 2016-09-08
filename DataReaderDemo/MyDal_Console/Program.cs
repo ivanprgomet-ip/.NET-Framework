@@ -26,11 +26,13 @@ namespace MyDal_Console
                     case "1":
                         break;
                     case "2":
+                        dalAuthor.OpenConn(@"Data Source=.; Initial Catalog=Books; User ID=booksDB; Password=books; Integrated Security=True");
                         List<Author>AllAuthors = dalAuthor.GetAllAuthorsToList();
                         foreach(Author a in AllAuthors)
                         {
                             Console.WriteLine(a.Firstname+" "+a.Lastname);
                         }
+                        dalAuthor.CloseConn();
                         Console.ReadKey();
                         break;
                     default:
