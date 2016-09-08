@@ -17,6 +17,7 @@ namespace DataReaderDemo
             {
                 Console.WriteLine("[1] Print values in database");
                 Console.WriteLine("[2] Add author to database");
+                Console.WriteLine("[3] Remove an author from database");
                 choice = Console.ReadLine();
 
 
@@ -28,6 +29,9 @@ namespace DataReaderDemo
                     case "2":
                         AddAuthor();
                         break;
+                    case "3":
+                        RemoveAuthorWithID();
+                        break;
                     default:
                         break;
                 }
@@ -36,6 +40,18 @@ namespace DataReaderDemo
 
         private static void PrintDatabaseValues()
         {
+            /*
+                A SqlConnection object that will have a property connectionstring
+                that will be of vital importance to connect and communicate with a
+                database. The connection has to be opened between the c# platform and 
+                the sql database to make sure they can communicate. A SQL command is 
+                created and stored in a string (you can first do the sqlcommand in SQL 
+                server to make sure the command really works. After storing the sql command
+                in a string, the string gets passed into an instantiated SqlCommand object together
+                with the SqlConnection object. then we use the SqlCommand togeter with an SqlDatareader
+                object becuase we want to read the command. So we put the 
+
+            */
             using (SqlConnection connection = new SqlConnection())
             {
                 connection.ConnectionString =
@@ -51,13 +67,12 @@ namespace DataReaderDemo
                     while (myDataReader.Read())
                     {
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("Fullname: " + myDataReader["Firstname"] + " " + myDataReader["Lastname"]);
+                        Console.WriteLine(myDataReader["Id"]+": " + myDataReader["Firstname"] + " " + myDataReader["Lastname"]);
                         Console.ResetColor();
                     }
                 }
             }
         }
-
         private static void ShowConnectionStatus(SqlConnection connection)
         {
             Console.WriteLine("Database location: " + connection.DataSource);
@@ -65,7 +80,6 @@ namespace DataReaderDemo
             Console.WriteLine("Timeut: " + connection.ConnectionTimeout);
             Console.WriteLine("State: " + connection.State);
         }
-
         static void AddAuthor()
         {
             Console.WriteLine("Enter authors firstname: ");
@@ -92,6 +106,23 @@ namespace DataReaderDemo
                     Console.WriteLine("Authors table not updated successfully");
                 }
             }
+        }
+        static void RemoveAuthorWithID()
+        {
+            Console.WriteLine("Enter ID of the author to remove: ");
+            string deleteID = Console.ReadLine();
+
+            string connectionstring = @"Data Source=.; Initial Catalog=Books; User ID=books; Password=books; Integrated Security=True";
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+
+            string sqlComm = "delete from Authors where Id = " + deleteID;
+            SqlCommand comm = new SqlCommand(sqlComm,conn);
+
+
+            Console.WriteLine($"{comm.ExecuteNonQuery()} rows affected");
+            Console.ReadKey();
+            conn.Close();
         }
     }
 }
