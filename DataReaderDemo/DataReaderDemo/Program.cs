@@ -49,7 +49,8 @@ namespace DataReaderDemo
                 server to make sure the command really works. After storing the sql command
                 in a string, the string gets passed into an instantiated SqlCommand object together
                 with the SqlConnection object. then we use the SqlCommand togeter with an SqlDatareader
-                object becuase we want to read the command. So we put the 
+                object becuase we want to read the command. so the datareader recieves all values that get 
+                retrieved when executing a command (SqlCommand).
 
             */
             using (SqlConnection connection = new SqlConnection())
