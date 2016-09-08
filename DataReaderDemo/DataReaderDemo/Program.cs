@@ -11,6 +11,31 @@ namespace DataReaderDemo
     {
         static void Main(string[] args)
         {
+            string choice = string.Empty;
+
+            while (true)
+            {
+                Console.WriteLine("[1] Print values in database");
+                Console.WriteLine("[2] Add author to database");
+                choice = Console.ReadLine();
+
+
+                switch (choice)
+                {
+                    case "1":
+                        PrintDatabaseValues();
+                        break;
+                    case "2":
+                        AddAuthor();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private static void PrintDatabaseValues()
+        {
             using (SqlConnection connection = new SqlConnection())
             {
                 connection.ConnectionString =
@@ -31,10 +56,6 @@ namespace DataReaderDemo
                     }
                 }
             }
-            AddAuthor();
-            Console.ReadKey();
-
-
         }
 
         private static void ShowConnectionStatus(SqlConnection connection)
