@@ -29,12 +29,7 @@ namespace lambda
             Predicate<int> callback = IsEvenNumber;//predicate is a delegate
             List<int> evenNumbers = list.FindAll(callback);
 
-            Console.WriteLine("here are your even numbers: ");
-            foreach (int evenNumber in evenNumbers)
-            {
-                Console.WriteLine("{0}\t", evenNumber);
-            }
-            Console.WriteLine();
+            PrintEvenNumbers(evenNumbers);
         }
 
         private static void AnonymousMethodSyntax()
@@ -47,12 +42,7 @@ namespace lambda
                 return (i % 2) == 0;//... returns this
             });
 
-            Console.WriteLine("here are your even numbers: ");
-            foreach (int evenNumber in evenNumbers)
-            {
-                Console.WriteLine("{0}\t", evenNumber);
-            }
-            Console.WriteLine();
+            PrintEvenNumbers(evenNumbers);
         }
 
         private static void LambdaExpressionSyntax()
@@ -62,6 +52,12 @@ namespace lambda
 
             List<int> evenNumbers = list.FindAll((int i) => (i % 2) == 0);
 
+            PrintEvenNumbers(evenNumbers);
+        }
+
+
+        private static void PrintEvenNumbers(List<int> evenNumbers)
+        {
             Console.WriteLine("here are your even numbers: ");
             foreach (int evenNumber in evenNumbers)
             {
