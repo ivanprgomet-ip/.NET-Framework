@@ -20,7 +20,7 @@ namespace anonymous_methods
             btnHello.Click += delegate
             {
                 MessageBox.Show("Nice knowing you");
-            };
+            };//this should be a oneliner, thats why we end it with a ;
 
             Controls.Add(btnHello);
 
