@@ -33,17 +33,16 @@ namespace delegates
         {
             list.Add(new Book(title, author, price, paperback));
         }
-        public void ProcessPaperbackBooks(ProcessBookDelegate processBook)
+        public void ProcessPaperbackBooks(ProcessBookDelegate processBook)//taking in delegate
         {
             foreach (Book b in list)
             {
                 if (b.Paperback)
                 {
-                    processBook(b);
+                    processBook(b);//the delegate itself takes in a book
                 }
             }
         }
-
     }
 }
 
@@ -77,7 +76,7 @@ namespace BookTestClient
         {
             BookDB bookDB = new BookDB();
             AddBooks(bookDB);
-            Console.WriteLine("paperback book titles:");
+            Console.WriteLine("paperback book titles: ");
 
             bookDB.ProcessPaperbackBooks(new ProcessBookDelegate(PrintTitle));
 
