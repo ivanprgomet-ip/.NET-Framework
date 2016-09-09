@@ -24,7 +24,7 @@ namespace delegates
 
     }
 
-    public delegate void ProcessBookDelegate(Book book);
+    public delegate void ProcessBookDelegate(Book book);//METODER SOM TAR EMOT BOK SOM INPARAMETER OCH RETURNERAR VOID
 
     public class BookDB
     {
@@ -78,12 +78,23 @@ namespace BookTestClient
             AddBooks(bookDB);
             Console.WriteLine("paperback book titles: ");
 
-            bookDB.ProcessPaperbackBooks(new ProcessBookDelegate(PrintTitle));
+            Console.WriteLine("DELEGATE CALL 1");
+            bookDB.ProcessPaperbackBooks(new ProcessBookDelegate(PrintTitle));//METODER SOM TAR EMOT BOK SOM INPARAMETER OCH RETURNERAR VOID
 
             PriceTotaller totaller = new PriceTotaller();
-            bookDB.ProcessPaperbackBooks(new ProcessBookDelegate(totaller.AddBookToTotal));
+            Console.WriteLine("DELEGATE CALL 2");
+            bookDB.ProcessPaperbackBooks(new ProcessBookDelegate(totaller.AddBookToTotal));//inserting pricetotaller object into delegate that only takes book? //METODER SOM TAR EMOT BOK SOM INPARAMETER OCH RETURNERAR VOID
             Console.WriteLine("Average paperback book price ${0:#.##}", totaller.AveragePrice());
             Console.ReadKey();
+
+
+            //random test
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("_________________________");
+            TextAdderToBook adder = new TextAdderToBook();
+            bookDB.ProcessPaperbackBooks(adder.AddTextToBookTitle);
+            Console.ResetColor();
+            
         }
 
         private static void AddBooks(BookDB bookDB)
@@ -92,6 +103,14 @@ namespace BookTestClient
             bookDB.AddBook("Default book title 1", "Default author(s) 1", 22.95m, true);
             bookDB.AddBook("Default book title 2", "Default author(s) 2", 99.95m, false);
             bookDB.AddBook("Default book title 3", "Default author(s) 3", 35.95m, true);
+        }
+    }
+
+    class TextAdderToBook//random test
+    {
+        public void AddTextToBookTitle(Book book)
+        {
+            Console.WriteLine(book.Title + " is a cool book!");
         }
     }
 }
